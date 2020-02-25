@@ -1,0 +1,16 @@
+#intro {
+  font-family: "Franklin Gothic Medium", "Arial Narrow", Arial, sans-serif;
+}
+
+#intro > #name {
+  color: darkgrey;
+}
+
+#intro > #description {
+  color: cadetblue;
+  background-color: azure;
+}
+
+#mood {
+  font-family: "Courier New", Courier, monospace;
+}
