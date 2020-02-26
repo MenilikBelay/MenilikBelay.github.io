@@ -62,3 +62,7 @@ a {
 .validator {
   text-align: right;
 }
+
+.pie-bullet {
+  list-style-image: url("static/images/pie_bullet.png");
+}
