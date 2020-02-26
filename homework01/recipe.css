@@ -1,0 +1,64 @@
+h1,
+h2 {
+  color: rgb(164, 164, 0); /* #A4A400 */
+  background-color: #f0f0f0;
+  font-family: "Lucida Sans Unicode", Helvetica, Arial, sans-serif;
+  text-emphasis: bold;
+  font-size: 18pt;
+  text-align: left;
+  font-weight: normal;
+  text-decoration: underline;
+}
+
+#title {
+  /* Override for header */
+  text-align: center;
+  font-size: 22pt;
+  font-weight: bold;
+}
+
+body {
+  background-color: white;
+  color: #404040;
+  font-size: 11pt;
+  font-family: Georgia, Garamond, sans-serif;
+  background-image: url("static/images/silverware.jpg");
+  background-attachment: fixed;
+}
+
+a {
+  color: #a4a400;
+}
+
+.direction {
+  font-weight: bold;
+}
+
+.deleted {
+  text-decoration: line-through;
+}
+
+#copy-right {
+  font-family: monospace;
+  text-align: right;
+}
+
+#user-comments div {
+  background-color: #ffffa8;
+}
+
+#user-comments blockquote {
+  font-style: italic;
+}
+
+#user-comments blockquote > span {
+  font-weight: bold;
+}
+
+.user {
+  margin-left: 40px;
+}
+
+.validator {
+  text-align: right;
+}
