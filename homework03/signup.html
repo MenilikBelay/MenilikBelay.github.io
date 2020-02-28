@@ -1,10 +1,77 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Document</title>
-</head>
-<body>
-    
-</body>
+  <head>
+    <meta charset="UTF-8" />
+    <link href="style.css" type="text/css" rel="stylesheet" />
+    <title>NerdLuv</title>
+  </head>
+  <body>
+    <form action="#">
+      <fieldset>
+        <legend>New User Signup:</legend>
+        <label for="name" class="left-align">Name: </label>
+        <input
+          type="text"
+          name="name"
+          id="name"
+          required
+          size="16"
+          class="right-align"
+        />
+        <br />
+        <label class="left-align">Gender: </label>
+        <span class="right-align">
+          <label><input type="radio" name="sex" required />Male</label>
+          <label><input type="radio" name="sex" checked />Female</label>
+        </span>
+        <br />
+        <label for="age" class="left-align">Age: </label>
+        <input
+          type="text"
+          id="age"
+          size="6"
+          maxlength="2"
+          required
+          class="right-align"
+        />
+        <br />
+        <label for="ptype" class="left-align">Personality Type: </label>
+        <span class="right-align">
+          <input type="text" id="ptype" size="6" maxlength="4" />
+          <span
+            >(<a href="http://www.humanmetrics.com/cgi-win/jtypes2.asp"
+              >Don't know your type?</a
+            >)</span
+          ></span
+        ><br />
+        <label for="os" class="left-align">Favorite OS: </label>
+        <select id="os" class="right-align">
+          <option value="windows" selected>Windows</option>
+          <option value="linux">Linux</option>
+          <option value="macos">MacOS</option>
+        </select>
+        <br />
+        <label class="left-align">Seeking Age: </label>
+        <span class="right-align">
+          <input
+            type="text"
+            placeholder="min"
+            size="6"
+            maxlength="2"
+            required
+          />
+          <span> to </span>
+          <input
+            type="text"
+            placeholder="max"
+            size="6"
+            maxlength="2"
+            required
+          />
+        </span>
+        <br />
+        <input type="submit" value="Sign up" id="btn" />
+      </fieldset>
+    </form>
+  </body>
 </html>

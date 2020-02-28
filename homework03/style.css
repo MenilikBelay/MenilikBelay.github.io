@@ -1,0 +1,46 @@
+* {
+  margin: 2pt;
+}
+
+form {
+  width: 40%;
+}
+
+fieldset {
+  background-color: #e6e6ff;
+}
+
+fieldset > legend {
+  background-color: white;
+}
+
+label {
+  font-weight: bold;
+}
+
+#btn {
+  background-color: pink;
+  font-weight: bold;
+  clear: both;
+}
+
+a {
+  color: #ff3300;
+}
+
+select {
+  background-color: #ffe9ff;
+}
+
+.left-align {
+  float: left;
+  width: 25%;
+  text-align: left;
+  clear: both;
+}
+
+.right-align {
+  float: left;
+  width: 50%;
+  text-align: left;
+}
