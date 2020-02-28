@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Grades</title>
+  </head>
+  <body>
+    <form action="http://mumstudents.org/params.php" method="post">
+      <fieldset>
+        <legend>View Grade</legend>
+        <label for="name">Name: </label>
+        <input type="text" name="name" id="name" required /> <br />
+        <label for="student_id">Id: </label>
+        <input type="text" name="student_id" id="student_id" required /> <br />
+        <select name="assignment" required>
+          <option value="lab01">Lab 01</option>
+          <option value="lab02">Lab 02</option>
+          <option value="lab03">Lab 03</option>
+          <option value="lab04">Lab 04</option>
+        </select>
+        <br />
+        <fieldset>
+          <legend>Entry</legend>
+          <label><input type="radio" name="entry" required />November</label>
+          <label><input type="radio" name="entry" />February</label>
+          <label><input type="radio" name="entry" />May</label>
+          <label><input type="radio" name="entry" />August</label>
+        </fieldset>
+        <label
+          ><input type="checkbox" name="consent" required /> I agree that the
+          information provided is true and mine.</label
+        >
+        <br />
+        <input type="submit" value="Get Grade" />
+      </fieldset>
+    </form>
+  </body>
+</html>
