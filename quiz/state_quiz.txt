@@ -1,0 +1,69 @@
+1. Can post requests be bookmarked? What are the problems?
+
+Answer: Post requests can be bookmarked. The problem is, as bookmarking is saving the current URL into the browser,
+the form data (which is essential for POST requests) can't be saved. This creates a post request with URL but not 
+form data, which is irrelevant. 
+
+2. What is the purpose of request dispatching?
+
+Answer: Request dispatcher in Servlet is an interface that is used to dispatch a request to any other resource required.
+It is used to dispatch to servlet, JSP or static contents (HTML, CSS, JavaScript, Images, ...) on the server. 
+
+3. What is the difference between redirect and request dispatch?
+
+Answer: The difference between the two is who handles what. In redirect, the browser is the one to seek for the resource 
+that is redirected. For instance, if a redirect is issued from the server as a response, the browser will get a 303 status code 
+and a URL for the redirect. Then the browser will make the request to the specified URL. On the other hand, when a request is 
+dispatched, the server will handle the requested dispatch internally, whithout the knowing of the browser or URL changes in the 
+client side. The other main difference between the two is passing request parameters. Dispatched requests can have a request 
+parameters set inside, while the redirected one's will only have URL information. 
+
+4. What is an attribute ?
+
+Answer: An attribute is an object in which we use to pass information between pages/servlets/jsp etc. 
+
+5. What is the difference between attributes and parameters?
+
+Answer: Main differences between attribute and parameters are: while attributes are objects of any type, 
+parameters are string values. Also, attributes can be read, write and updated, while parameters are read only 
+from the servlet side (they are values from the request object [get as query parameters, post as form data]).
+
+6. What are dangers of using attributes?
+
+Answer: There are different attribute types. In servlet, only request type attributes are thread safe. Hence, 
+trying to use application context attributes for storing information depending on the request type will cost a lot 
+to keep the attribute thread safe. Also, if not properly used, attributes can be difficult to manage. 
+
+7. What does it mean to say that http is stateless? Give an example of a stateful protocol.
+
+Answer: Http is stateless because if a request is made form the same client to the same server, every time 
+the server won't know which client sent the request. By default, Http don't save the last state of the interaction 
+between the client and server. An example of stateful protocol can be FTP. 
+
+8. Give 5 different methods for maintaining state information (count each attribute scope as one method).
+
+Answer: The five different ways to store information are 
+request, session, application context, cookie and hidden form data. 
+
+9. How long does a session last?
+
+Answer: Depends on how we set the session. If we sent the session an expiry date, the session 
+will last until that day; if we set the session an explosion time (timeout), the session will only last 
+until the timeout ends; if we terminate the session manually, the session will terminate immediately.  
+
+10. What is a cookie, and how long does a cookie last?
+
+Answer: Cookie is data we store on the client side (to persist small and short things). 
+Cookies last until their expiry time or if they are temporary, will last until the browser is closed. 
+
+11. What is the purpose of URL rewriting?
+
+Answer: URL rewriting is used to map urls or routing within a web application. This can be useful for abstracting the 
+URL implication and shortening the URL. An example can be instead of writing the URL as 
+www.family.com/hello?user=Milla&wife=Milka&children=4... you can say as www.family.com/hello/Milla/Milka/4. 
+
+12. Why does the request attribute report ‘null’ for the maintaining state demo?
+
+Answer: That is because the request attribute has request scope only. Since the get request handler didn't forward or 
+include to another servlet/jsp on the same server, the request attributes are lost on the process (only html, cookies and sessions)
+are returned to the browser. 

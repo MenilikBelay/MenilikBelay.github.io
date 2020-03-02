@@ -1,0 +1,70 @@
+1. What is the difference between a web server and a web container?
+
+Answer: 
+- Web Server: is a word we use to describe either the hardware or the software. When we use it for software 
+purpose, the server knows where static contents are and pass the dynamic requests to the containers that 
+are configured on the server. The best example can be Apache server where it can work with containers like 
+tomcat (popular for Java) and mod_wsgi(popular for Python). It is the entry point for each request; then the 
+request either gets its response either directly (if request is looking for static content) or indirectly (if the
+request is for dynamic content).   
+
+- Web Container: is a software that handles the incoming dynamic request (sometimes static, it's not only limited to dynamic).
+Containers are platform (underlying language) dependent. For instance, Java Web Containers such as Tomcat can only be deployed
+to work with code written in Java. Web containers interpret the incoming request into the apporpriate handler (Servlets or JSP in
+case of Java) and convert the raw HTTP request into objects that fit the application handler (Servlets in Java). Containers are also
+responsible for managing the lifecycle of servlets. Web containers are embedded into the web server to run, map and handle requests 
+targeted to our application code.   
+
+2. What is a servlet?
+
+Answer: Servlet is a java code stored in the server side that will create dynamic web page as requested. 
+
+3.How do web servers and web containers interact with servlets?
+
+Answer: As mentioned in answer for question number 1, all incoming requests pass through the web server. 
+If the request is to direclty locate a static content, the web server can return the requested content directly 
+(if available). If the request is to get content from servlets, the web server delegates responsibility to 
+the web container, which in turn convert raw HTTP parameters into objects understandable by Servlets. The container
+then calls one of the servlets responsible (based on URL mapping) from the list of servlets who's lifecycle is managed 
+by the container. The servlet is where the logic is written and is expected to return a response object to the container. 
+The container then decode the response object into web protocol (html mostly) and return to the web server which in turn 
+return to who ever requested.   
+
+4.Who creates request objects?
+
+Answer: Web container 
+
+5.What are the states in the servlet lifecycle?
+
+Answer: The web container first initializes the servlet (create an object of a servlet). Then the servlet's code 
+inside of init method is run. After that, the servlet object will sit idle until the container has a request that mapped 
+to this individual servlet. When a request comes, the servlet's service method is called which in turn calls the
+doXXX (doGet, doPost, ...) method depending on the request method. Finally, when the container wishes to close or end 
+the life of an individual servlet, it calls the destroy method. Then the servlet object will be ready to garbage collection.
+Notice that, in the life time of a container, only a single instance of the servlet is instantiated. Every request that maps 
+to that servlet will be handled using a single object but multiple threads, not multiple objects.  
+
+6.Who calls init and when? 
+
+Answer: Init is called by the web container. The first and only time the 
+init methods are called is for the purpose of initializing the servlet. Once the servlet is 
+initialized, the web container will always use the service method and never calls init method again. 
+
+7. Which of init, service, and doGet should you override? 
+
+Answer: Depends on your desire. Mostly, you override doGet because you want to handle the GET request. 
+Sometimes you override init method to start some processes (something like creating a database connection). 
+I don't see the usecase for overriding service method, but might happen if you want to write a middleware where
+you want to add something to every request that come to the servlet and HTTP method independent (for all GET, POST, ...
+methods of that servlet). 
+
+8. In what sense are servlets multi-threaded?
+
+Answer: Every request is deligated to a thread. Even if we have multiple threads from the container, we only have single
+servlet. Each thread get a copy of the service method, which in turn deligate the work to doXXX (doGet, doPost, ...) methods.
+
+9. What are the implications of this for servlet instance variables? 
+
+Answer: Even if we have multiple threads from the container, we only have singleton for servlets. Each thread get 
+different copies of methods but share instance vairables. This leads to servlets having non thread safe instance 
+variables. Care must be taken! 
