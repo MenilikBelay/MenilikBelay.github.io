@@ -1,0 +1,75 @@
+1.What is the main value of Java Server Pages? 
+
+Answer: The main value of having JSPs is it will allow us to write a code that is less error prone to Servlets still having 
+the HTML code and the java code. The benefit of JSPs to Servlets is that it will include more presentation layer code (HTML) 
+and reduce the burden of writing multiple lines of println expressions. We will have a more readable dynamic page that uses the power
+of both HTML and Java. 
+
+2. How are JSP pages related to servlets?
+
+Answer: JSP pages are compiled into servlets before their first instantiation. When the browser calls the JSP, the 
+container will compile the JSP into Servlets and then the lifecycle methods continue. Hence, JSPs are HTML pages embedding
+java code that will later on get compiled and converted into Servlet.
+
+3.How are JSP pages related to HTML? 
+
+Answer: JSPs contain HTML. The main purpose of having JSPs are writing html pages that embedd java into it (using tags). 
+
+4.Give an example of a JSP scriptlet and show how it will look in the JSP servlet . 
+
+Answer: scriptlet is an element of JSP. Anything written in scriptlet tags will get inserted into  _jspService method (similar to 
+service method of Servlets). 
+For Example: <% System.out.println("hello"); %> will be in JSP servlet's service method as
+public void _jspService (...) { // request and response parameters skipped
+    System.out.println("hello");
+}
+
+5.Give an example of a JSP declaration and show how it will look in the JSP servlet.
+
+Answer: JSP declaration is also a jsp element that will be converted into class attribute (field) or method.
+For Example: <%! int age = 24; %>   // will convert to 
+public class SERVLET_NAME extends HttpServlet {
+    int age = 24;
+}
+
+6.Give an example of a JSP comment and show how it will look in the JSP servlet. 
+
+Answer: JSP comment is also an element of JSP. The comment, however, is converted into html comments and is placed 
+in the same place as the html location written in the JSP.  
+For Example: <h1> ... </h1><%-- This is comment --%><p>...</p>
+
+public void _jspService (...) {
+    JspWritter out = ... ;
+    out.println("<h1> ... </h1>");
+    out.println("<%-- This is comment --%>");
+    out.println("<p>...</p>");
+}
+
+
+7.   Give an example of a JSP expression and show how it will look in the JSP servlet. 
+
+Answer: JSP expressions are used to put things in the print statement of JspWritter. The out writter will be in _jspService method.
+For Example: <%= 100 %> will be out.println(100);
+
+8.Give an example of a JSP directive and show how it will look in the JSP servlet. 
+
+Answer: JSP directives are used to tell the jsp container that we need something. It's means of communication between jsp and container. 
+For Example: <%@ import='hello.java' %> will be interpreated as an import statement for the converted servlet. 
+
+9.Explain how an EL expression is evaluated.
+
+Answer: EL expressions are evaluated in hierarchical manner. It first checks if it is implicit EL object, then checks 
+page scope attributes, then request level, then session level and finally application level. If it is not found, it will 
+ignore it and not resolve the expression at all. 
+
+10. Explain how servlet attributes are involved in EL expressions.
+
+Answer: Servlet attributes can be accessed by EL expressions. When the container resolves EL expressions, it
+will check all the servlet attributes in hierarchy. But first, it will check page level and inline attributes
+before moving up to servlet attributes. 
+
+11.Explain how servlets and JSPs use request dispatch to interact. 
+
+Answer: When using request dispatch, the request is either forwarded or included between the servlet and JSP. This 
+allows the passage of the request object (modified or not) from one to the other. The dispatch is resolved by 
+the container. 
