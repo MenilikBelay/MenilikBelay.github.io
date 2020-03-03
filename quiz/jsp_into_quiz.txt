@@ -65,7 +65,7 @@ ignore it and not resolve the expression at all.
 10. Explain how servlet attributes are involved in EL expressions.
 
 Answer: Servlet attributes can be accessed by EL expressions. When the container resolves EL expressions, it
-will check all the servlet attributes in hierarchy. But first, it will check page level and inline attributes
+will check all the servlet attributes in hierarchy. But first, it will check implicit and page level attributes
 before moving up to servlet attributes. 
 
 11.Explain how servlets and JSPs use request dispatch to interact. 
