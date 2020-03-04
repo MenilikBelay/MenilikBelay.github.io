@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?><project-modules id="moduleCoreId" project-version="1.5.0">
+        
+    <wb-module deploy-name=" ForEachDemo">
+                
+        <wb-resource deploy-path="/" source-path="/WebContent" tag="defaultRootSource"/>
+                
+        <wb-resource deploy-path="/WEB-INF/classes" source-path="/src"/>
+        <dependent-module archiveName="taglibs-standard-impl-1.2.5.jar" deploy-path="/WEB-INF/lib" handle="module:/classpath/lib//media/milla/LENOVO/jars/jstl/taglibs-standard-impl-1.2.5.jar">
+            <dependency-type>uses</dependency-type>
+        </dependent-module>
+        <dependent-module archiveName="taglibs-standard-spec-1.2.5.jar" deploy-path="/WEB-INF/lib" handle="module:/classpath/lib//media/milla/LENOVO/jars/jstl/taglibs-standard-spec-1.2.5.jar">
+            <dependency-type>uses</dependency-type>
+        </dependent-module>
+                
+        <property name="context-root" value="_ForEachDemo"/>
+                
+        <property name="java-output-path" value="/ ForEachDemo/build/classes"/>
+            
+    </wb-module>
+    
+</project-modules>
