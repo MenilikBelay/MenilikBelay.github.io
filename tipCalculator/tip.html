@@ -11,7 +11,7 @@
       var totalElem = document.getElementById("total");
       var subtotal = subtotalElem.value;
       var tip = tipElem.value;
-      var total = (tip / 100) * subtotal;
+      var total = (tip / 100) * subtotal + subtotal;
       totalElem.innerHTML = "$" + total;
     }
   </script>
