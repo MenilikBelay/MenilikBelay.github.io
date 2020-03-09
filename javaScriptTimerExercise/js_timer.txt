@@ -1,0 +1,31 @@
+1. The difference between setTimeout (booyah, 2000) and setTimeout (booyah(), 2000) is that the first one
+passes function as a parameter: hence, the function will be executed after 2sec. The latter one, however, will
+resolve the function (call booyah) right away (without waiting 2sec) and expect to execute something returned (if possible)
+from the the booyah function. 
+
+
+2. They both display 6.
+
+
+3. 
+// CODE 
+const booyah1 = function () {
+    alert ('BOOYAH!');
+};
+
+const booyah2 = function () {
+    return booyah1;
+};
+
+setTimeout (booyah1, 2000);
+setTimeout (booyah2(), 2000);
+// CODE
+
+
+
+4. Unobtrusive javascript is when we distinguish the script code from the html code. Instead of scattering javascript code 
+into our html, we isolate our content (html) from our script (javascript). One of the practical application of 
+unobtrusive javascript is code readablity and our code being easily fixed in case of refactor. All we need to do 
+is change the JS code or HTML code without affecting the other. The other practicality is working as a group, 
+task can be easily divided and people can focus on their individual task (script writters will focus on javascript, while 
+content writters will focus on html).
