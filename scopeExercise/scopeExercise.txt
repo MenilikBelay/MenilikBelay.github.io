@@ -1,0 +1,55 @@
+1. The following will be printed 
+
+10889101
+
+2. In JavaScript, a method is a function inside an object while a function is by itself an object. Methods have no meaning 
+and existance without an object, while functions (excluding internal functions that live inside another function) have life. 
+In some terminology, functions can be elements of window object (global object in JS) directly,while methods are found inside
+an object that is inside window object. 
+
+3. 'this' in java refers to fields and methods the class holds that are not static.
+
+4. In JavaScript this refers to attributes the object has, but if not found in side the given object,
+it will directly starts referring from the window object. 
+
+5. this in JavaScript constructor refers to attributes we want to have for the new object to be created. It 
+specifies which fields to include as public in the object to be returned. 
+
+6. since x is a prototype and f is defined inside of x, and called using x (like x.f()); then 'this' keyword
+will try to find attributes from the x object and if not found, it will check the global object. 
+
+7. a free variable is a variable that's not defined in a function's scope. It comes from outter scope and is valid
+inside the function. 
+
+8. 
+
+const newObject = {
+    name: 'fred', 
+    major: 'music', 
+    func: (x, y) => (x === y) ? x * y : Math.min(x, y)
+}
+
+
+9. 
+
+function Employee (name, salary, position) {
+    this.name = name;
+    this.salary = salary;
+    this.position = position;
+}
+
+const milla = new Employee('Menilik', 1, 'CEO');
+
+10. 
+
+const product = (...multiplier) => {
+    let product = 1;
+    multiplier.forEach (value => {
+        product*=value;
+    });
+    return product;
+};
+
+11. 
+
+const max = (x, y, z) => Math.max(x, y, z);
