@@ -1,0 +1,146 @@
+1. 
+
+undefined889101
+
+2. Global scope is a scope a variable have in accordance with the javascript global namespace. This is achieved when our 
+variable is defined out of any function (without being inside any function). Local scope is a visibility area for a variable
+only inside the defined function. To be locally scoped, a variable needs to be inside a function.
+
+3. 
+
+a. No
+b. Yes
+c. No
+d. Yes
+e. Yes
+
+4. 
+
+8125
+
+5. 10 
+
+6. 
+
+var count = (function () {
+    var counter = 0;
+    return {
+        add : () => ++counter,
+        reset: () => {
+            counter = 0;
+            return counter;
+        }
+    };
+    })();
+
+7. The free variable is 'counter'. In the context of closure, a free variable is a variable not in the 
+parameter of or defined inside the closure function.
+
+8. 
+
+var make_adder = (inc) => {
+    let counter = 0;
+    return () => {
+     return counter += inc;   
+    };
+};
+
+
+9. We can make it immediately invoked function expression (IIFE). This way, all the variables and function definitions will
+have local scope than global. 
+
+10. 
+
+const employee = ( function () {
+    let _name;
+    let _age;
+    let _salary;
+    const setAge = (age) => {_age = age;};
+    const setSalary = (salary) => {_salary = salary;};
+    const setName = (name) => {_name = name;};
+    const getSalary = () => _salary;
+    const getAge = () => _age;
+    const getName = () => _name;
+    const increaseSalary = (percentage) => {
+        setSalary(((percentage / 100) * getSalary()) + getSalary());
+        return getSalary();
+    };
+    const incrementAge = () => {
+        setAge(getAge() + 1);
+        return getAge();
+    };
+    return {
+        setAge, setSalary, setName, increaseSalary, incrementAge
+    };
+}
+)();
+
+
+11. 
+
+const employee = ( function () {
+    let _name;
+    let _age;
+    let _salary;
+    const getSalary = () => _salary;
+    const getAge = () => _age;
+    const getName = () => _name;
+    return {
+        setAge : (age) => {_age = age;},
+        setSalary: (salary) => {_salary = salary;},
+        setName: (name) => {_name = name;},
+        increaseSalary: function (percentage) {
+            this.setSalary(((percentage / 100) * getSalary()) + getSalary());
+            return getSalary();
+        },
+        incrementAge: function () {
+            this.setAge(getAge() + 1);
+            return getAge();
+        }
+    };
+}
+)();
+
+12. 
+
+const employee = ( function () {
+    let _name;
+    let _age;
+    let _salary;
+    emp = {};
+    emp.setAge = (age) => {_age = age;};
+    emp.setSalary = (salary) => {_salary = salary;};
+    emp.setName = (name) => {_name = name;};
+    const getSalary = () => _salary;
+    const getAge = () => _age;
+    const getName = () => _name;
+    emp.increaseSalary = function (percentage) {
+        this.setSalary(((percentage / 100) * getSalary()) + getSalary());
+        return getSalary();
+    };
+    emp.incrementAge = function () {
+        this.setAge(getAge() + 1);
+        return getAge();
+    };
+    return emp;
+}
+)();
+
+13. 
+
+employee.address = '';
+employee.setAddress = function (address) {this.address = address;}; 
+employee.getAddress = function () {return this.address;};
+
+14. 
+
+Error: Hattor
+
+15. 
+
+Success: Hattori
+
+16. 
+
+success
+error
