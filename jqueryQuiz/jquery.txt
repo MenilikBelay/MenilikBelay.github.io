@@ -1,0 +1,14 @@
+1. 
+
+In jQuery, a jQuery function is the function $() or jQuery(). When we start selecting elements with $, we are 
+calling a function which will in turn return new jQuery object. It is a fact that in javascript, functions are objects, 
+so $ and jQuery by themselves have properties and methods like $.support. We can maniuplate the returned objects from 
+$() to apply things on the selected element.
+
+2. 
+
+$('div h1').css('background-color', 'red');
+
+3. 
+
+$('p').append('YES!');
