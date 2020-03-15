@@ -1,0 +1,15 @@
+1. All the three code fragments are equivalent. They are equivalent even if they have different parameters because 
+i. In JavaScript you can declare as many parameters as you want, but on run time, the ones having arguments or defaults 
+have data; the rest is undefined. 
+ii. The each method passes two arguments into the function we passed (the callback function). Either we use it or not is 
+up to us. In the first code, we use 'e'; the current instance to the specific 'li' element. In the second and third, even if 
+the parameters are different, we use 'this' to refer to the specific context. 
+
+2. 
+
+$('div').has('ul').css({'background-color': 'red'});
+
+
+3. 
+
+$('body').append('<div><h1>JQuery Core</h1></div>');
